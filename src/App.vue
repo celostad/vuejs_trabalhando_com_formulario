@@ -24,7 +24,12 @@
         <label>Qual tipo de contrataçao</label>
         <select v-model="tipoSelecionado">
           <option v-for="item in tipos" :key="item.id" :value="item.nome"> {{item.nome}} </option>
-        </select>
+        </select><br/>
+
+        <label>Qual seu nivel?</label>
+        <span><input type="radio" value="basico" v-model="nivel" />Basico</span>
+        <span><input type="radio" value="intermediario" v-model="nivel" />Intermediario</span>
+        <span><input type="radio" value="avancado" v-model="nivel" />Avançado</span>
 
       </form>
     </div>
@@ -42,7 +47,8 @@
       <ul>
         <li v-for="tech in tecnologias" :key="tech"> {{tech}} </li>
       </ul> <br/>
-      <label>Tipo de contrataçao: {{tipoSelecionado}} </label>
+      <label>Tipo de contrataçao: {{tipoSelecionado}} </label> <br/>
+      <label>Nivel atual: {{nivel}} </label>
 
     </div>
 
@@ -67,7 +73,8 @@ export default {
         { id: 3, nome: 'PJ'},
         { id: 4, nome: 'Remoto'}
       ],
-      tipoSelecionado: 'Freelancer'
+      tipoSelecionado: 'Freelancer',
+      nivel: 'basico'
     }
   }
 }
