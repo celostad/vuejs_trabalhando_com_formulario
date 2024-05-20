@@ -19,8 +19,12 @@
         <label>Tecnologias</label>    
         <span><input type="checkbox" value="javascript" v-model="tecnologias" />JavaScript</span>
         <span><input type="checkbox" value="css" v-model="tecnologias"/>Css</span>
-        <span><input type="checkbox" value="vuejs" v-model="tecnologias"/>VueJS</span>
+        <span><input type="checkbox" value="vuejs" v-model="tecnologias"/>VueJS</span><br/>
 
+        <label>Qual tipo de contrataçao</label>
+        <select v-model="tipoSelecionado">
+          <option v-for="item in tipos" :key="item.id" :value="item.nome"> {{item.nome}} </option>
+        </select>
 
       </form>
     </div>
@@ -37,7 +41,8 @@
       <label>Tecnologias:</label>
       <ul>
         <li v-for="tech in tecnologias" :key="tech"> {{tech}} </li>
-      </ul>
+      </ul> <br/>
+      <label>Tipo de contrataçao: {{tipoSelecionado}} </label>
 
     </div>
 
@@ -56,6 +61,13 @@ export default {
       },
       opiniao: '',
       tecnologias: [],
+      tipos:[
+        { id: 1, nome: 'Freelancer' },
+        { id: 2, nome: 'CLT'},
+        { id: 3, nome: 'PJ'},
+        { id: 4, nome: 'Remoto'}
+      ],
+      tipoSelecionado: 'Freelancer'
     }
   }
 }
